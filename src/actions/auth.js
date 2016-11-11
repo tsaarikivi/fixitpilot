@@ -12,9 +12,11 @@ export function logout() {
 
 export function login(user) {
     return dispatch => {
-        dispatch({
-            type: authTypes.LOGIN,
-            payload: user
+        firebase.database().ref('users').child(user.uid).on('value', data => {
+            dispatch({
+                type: authTypes.LOGIN,
+                payload: data.val()
+            })
         })
     }
 }

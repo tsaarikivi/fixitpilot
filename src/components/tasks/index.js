@@ -29,8 +29,10 @@ class Tasks extends React.Component {
     }
 
     renderNewTaskLink() {
-        // check if user is coordinator
-        return <Link to="/newTask">Lisää uusi duuni</Link>
+        const { auth } = this.props
+        if (auth) {
+            if (auth.coordinator) return <Link to="/newTask">Lisää uusi duuni</Link>
+        }
     }
 
     renderTaskFilter() {
@@ -45,7 +47,7 @@ class Tasks extends React.Component {
 }
 
 function mapStateToProps(state) {
-    return { tasks: state.tasks, taskFilter: state.taskFilter }
+    return { tasks: state.tasks, taskFilter: state.taskFilter, auth: state.auth }
 }
 
 function mapDispatchToProps(dispatch) {

@@ -19,7 +19,7 @@ class Register extends React.Component {
                 <br />
                 <Field name="email" component="input" type="email" />
                 <br />
-                <label htmlFor="password">Email</label>
+                <label htmlFor="password">Salasana</label>
                 <br />
                 <Field name="password" component="input" type="password" />
                 <br />
@@ -44,8 +44,9 @@ class Register extends React.Component {
         firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
             .then(user => {
                 data.password = null
-                data.cordinator = false
+                data.coordinator = false
                 data.admin = false
+                data.uid = user.uid
                 firebase.database().ref('users').child(user.uid).update(data)
                 // set user data to reducer
                 this.context.router.push('/tasks')
