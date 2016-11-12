@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux'
 import tasksActions from '../../actions/tasks'
 import firebase from 'firebase'
 
+import { getVisibleTasks } from '../../selectors/tasks'
+
 import TaskFilter from './TaskFilter'
 import TaskList from './TaskList'
 
@@ -36,18 +38,20 @@ class Tasks extends React.Component {
     }
 
     renderTaskFilter() {
-        //return <TaskFilter />
+        return <TaskFilter auth={this.props.auth} />
     }
 
     renderTaskList() {
         let { taskFilter } = this.props
         let {tasks} = this.props
-        return <TaskList filter={taskFilter} tasks={tasks} />
+        return <TaskList tasks={tasks} taskFilter={taskFilter} />
     }
 }
 
+
+
 function mapStateToProps(state) {
-    return { tasks: state.tasks, taskFilter: state.taskFilter, auth: state.auth }
+    return { tasks: getVisibleTasks(state), taskFilter: state.taskFilter, auth: state.auth }
 }
 
 function mapDispatchToProps(dispatch) {

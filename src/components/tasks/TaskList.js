@@ -7,10 +7,16 @@ export default class TaskList extends React.Component {
     render() {
         return (
             <div className="task-list">
-                <h2>Duunilista</h2>
+                <h2>Duunilista : {this.renderFilter(this.props.taskFilter)}</h2>
                 <ul>{this.renderTaskList()}</ul>
             </div>
         )
+    }
+
+    renderFilter(filter) {
+        if (filter == 'ALL') return "Kaikki"
+        if (filter == 'OWN') return "Omat"
+        if (filter == 'FREE') return "Vapaat"
     }
 
     renderTaskList() {

@@ -3,18 +3,31 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import taskFilterActions from '../../actions/taskFilter'
 
+require('./taskFilter.scss')
+
 class TaskFilter extends React.Component {
 
     render() {
-        const { changeFilter } = this.props.taskFilterActions
         return (
             <div className="task-filter">
-                <ul>
-                    <li onClick={() => changeFilter('ALL')}><img src="./images/task.svg" alt="tasks" />Kaikki</li>
-                    <li onClick={() => changeFilter('OWN')}><img src="./images/owntask.svg" alt="owntasks" />Omat</li>
-                </ul>
+                {this.renderFilters()}
             </div>
         )
+    }
+
+    renderFilters() {
+        const { changeFilter } = this.props.taskFilterActions
+        if (this.props.auth) {
+            return <ul>
+                <li onClick={() => changeFilter('ALL')}><img src="./images/task.svg" alt="tasks" />Kaikki</li>
+                <li onClick={() => changeFilter('FREE')}><img src="./images/task.svg" alt="tasks" />Vapaat</li>
+                <li onClick={() => changeFilter('OWN')}><img src="./images/owntask.svg" alt="owntasks" />Omat</li>
+            </ul>
+        }
+        return <ul>
+            <li onClick={() => changeFilter('ALL')}><img src="./images/task.svg" alt="tasks" />Kaikki</li>
+            <li onClick={() => changeFilter('FREE')}><img src="./images/task.svg" alt="tasks" />Vapaat</li>
+        </ul>
     }
 }
 

@@ -6,6 +6,18 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.text-red {
+    color: red;
+}
+
+.text-green {
+    color: green;
+}
+
+.error {
+    margin-left: 10px;
+} 
+
 p {
     white-space: pre-wrap;   
 }

@@ -15,29 +15,24 @@ class Register extends React.Component {
         const { handleSubmit } = this.props
         return (
             <form onSubmit={handleSubmit(data => this.handleSubmit(data))}>
-                <label htmlFor="email">Email</label>
-                <br />
-                <Field name="email" component="input" type="email" />
-                <br />
-                <label htmlFor="password">Salasana</label>
-                <br />
-                <Field name="password" component="input" type="password" />
-                <br />
-                <label htmlFor="firstName">Etunimi</label>
-                <br />
-                <Field name="firstName" component="input" type="text" />
-                <br />
-                <label htmlFor="lastName">Sukunimi</label>
-                <br />
-                <Field name="lastName" component="input" type="text" />
-                <br />
-                <label htmlFor="city">Kaupunki</label>
-                <br />
-                <Field name="city" component="input" type="text" />
-                <br />
+                <Field name="email" component={data => this.renderField(data)} type="email" label="Email" />
+                <Field name="password" component={data => this.renderField(data)} type="password" label="Salasana" />
+                <Field name="firstName" component={data => this.renderField(data)} type="text" label="Etunimi" />
+                <Field name="lastName" component={data => this.renderField(data)} type="text" label="Sukunimi" />
+                <Field name="city" component={data => this.renderField(data)} type="text" label="Kaupunki" />
+                <Field name="phone" component={data => this.renderField(data)} type="text" label="Puhelinnumero" />
                 <button type="submit">Rekisteröidy</button>
             </form>
         )
+    }
+
+    renderField({ input, label, type, meta: { asyncValidating, touched, error } }) {
+        return <div>
+            <label>{label}</label>{touched && error && <span className="text-red error">{error}</span>}
+            <div className={asyncValidating ? 'async-validating' : ''}>
+                <input {...input} type={type} placeholder={label} />
+            </div>
+        </div>
     }
 
     handleSubmit(data) {
@@ -57,6 +52,30 @@ class Register extends React.Component {
     }
 }
 
+const validate = values => {
+    const errors = {}
+    if (!values.email) {
+        errors.email = 'Vaadittu kenttä'
+    }
+    if (!values.password) {
+        errors.password = 'Vaadittu kenttä'
+    }
+    if (!values.firstName) {
+        errors.firstName = 'Vaadittu kenttä'
+    }
+    if (!values.lastName) {
+        errors.lastName = 'Vaadittu kenttä'
+    }
+    if (!values.city) {
+        errors.city = 'Vaadittu kenttä'
+    }
+    if (!values.phone) {
+        errors.phone = 'Vaadittu kenttä'
+    }
+    return errors
+}
+
 export default reduxForm({
-    form: 'RegisterForm'
+    form: 'RegisterForm',
+    validate
 })(Register)

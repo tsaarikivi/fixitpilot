@@ -4,7 +4,8 @@
     ".write": true,
     "tasks": {
       ".indexOn": [
-        "assignee"
+        "done",
+        "timestamp"
       ]
     }
   }

@@ -11,7 +11,7 @@ class TopBar extends React.Component {
         return (
             <nav className="top-bar">
                 <ul>
-                    <li className="left bold title"><Link to="/tasks"><img src="./images/task-light.svg" alt="tasklist" />FixitPilot</Link></li>
+                    <li className="left bold title"><Link to="/tasks">FixitPilot</Link></li>
                     {this.renderAuth()}
                 </ul>
             </nav>

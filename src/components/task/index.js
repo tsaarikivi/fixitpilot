@@ -25,9 +25,11 @@ class Task extends React.Component {
                     <h1>{task.title}</h1>
                     <p>Osoite: {task.address}</p>
                     <p>Kuvaus: {task.desc}</p>
+                    <p>Toivottu käyntiaika: {task.reqtime}</p>
                     <p>tehty: {task.done.toString()}</p>
                     <p>jatkettu: {task.continued}</p>
                     {this.renderButtons(task)}
+                    {this.renderDoing(task)}
                 </div>
             )
         }
@@ -51,6 +53,10 @@ class Task extends React.Component {
                 <button onClick={() => this.completeTask(task, taskId)}>Duuni valmis</button>
             </div>
         }
+    }
+
+    renderDoing(task) {
+        if (task.assignee) return <h2>Duuni on otettu vastaan</h2>
     }
 
     acceptTask(task, taskId) {

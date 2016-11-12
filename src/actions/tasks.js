@@ -5,7 +5,7 @@ import tasksTypes from '../constants/tasks'
 const fetchTasks = () => {
     const ref = firebase.database().ref('tasks')
     return dispatch => {
-        ref.orderByChild('assignee').equalTo(false).on('value', data => {
+        ref.orderByChild('done').equalTo(false).on('value', data => {
             dispatch({
                 type: tasksTypes.FETCH_TASKS,
                 payload: data.val()

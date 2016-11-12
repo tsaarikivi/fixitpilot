@@ -12,8 +12,10 @@
             margin: 0;
             list-style: none;
             li {
-                padding: 2vw;
+                padding: 4vw 2vw;
+                box-sizing: border-box;
                 a {
+                    padding: 0;
                     text-decoration: none;
                     color: white;
                 }

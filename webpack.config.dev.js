@@ -2,7 +2,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    devtool: "source-map",
+    devtool: "inline-source-map",
     entry: {
         app: './src/index.js',
         polyfill: ['babel-polyfill'],

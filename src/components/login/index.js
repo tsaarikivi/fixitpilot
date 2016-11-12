@@ -15,17 +15,20 @@ class Login extends React.Component {
         const { handleSubmit } = this.props
         return (
             <form onSubmit={handleSubmit(data => this.handleSubmit(data))}>
-                <label htmlFor="email">Email</label>
-                <br />
-                <Field name="email" component="input" type="email" />
-                <br />
-                <label htmlFor="password">Email</label>
-                <br />
-                <Field name="password" component="input" type="password" />
-                <br />
+                <Field name="email" component={data => this.renderField(data)} type="email" label="Email" />
+                <Field name="password" component={data => this.renderField(data)} type="password" label="Salasana" />
                 <button type="submit">Kirjaudu</button>
             </form>
         )
+    }
+
+    renderField({ input, label, type, meta: { asyncValidating, touched, error } }) {
+        return <div>
+            <label>{label}</label>{touched && error && <span className="text-red error">{error}</span>}
+            <div className={asyncValidating ? 'async-validating' : ''}>
+                <input {...input} type={type} placeholder={label} />
+            </div>
+        </div>
     }
 
     handleSubmit(data) {
@@ -40,6 +43,18 @@ class Login extends React.Component {
     }
 }
 
+const validate = values => {
+    const errors = {}
+    if (!values.email) {
+        errors.email = 'Vaadittu kenttä'
+    }
+    if (!values.password) {
+        errors.password = 'Vaadittu kenttä'
+    }
+    return errors
+}
+
 export default reduxForm({
-    form: 'LoginForm'
+    form: 'LoginForm',
+    validate
 })(Login)
