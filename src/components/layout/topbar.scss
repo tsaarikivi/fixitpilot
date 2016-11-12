@@ -1,30 +1,64 @@
-.top-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background-color: navy;
-    color: white;
-    ul {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        li {
-            padding: 20px;
-            a {
-                text-decoration: none;
-                color: white;
+@media screen and (max-width: 790px) {
+    .top-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 13vw;
+        background-color: navy;
+        color: white;
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            li {
+                padding: 2vw;
+                a {
+                    text-decoration: none;
+                    color: white;
+                }
             }
         }
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+        }
+        .title {
+            text-transform: uppercase;
+        }
     }
-    .left {
-        float: left;
-    }
-    .right {
-        float: right;
-    }
-    .title {
-        text-transform: uppercase;
+}
+@media screen and (min-width: 791px) {
+    .top-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: navy;
+        color: white;
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            li {
+                padding: 20px;
+                a {
+                    text-decoration: none;
+                    color: white;
+                }
+            }
+        }
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+        }
+        .title {
+            text-transform: uppercase;
+        }
     }
 }

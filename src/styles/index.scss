@@ -6,13 +6,66 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.body-container {
-    margin: 100px auto 0;
-    padding: 0;
-    width: 95%;
-    max-width: 800px;
+p {
+    white-space: pre-wrap;   
 }
 
-.bold {
-    font-weight: bold;
+@media screen and (max-width: 790px) {
+    .body-container {
+        margin: 16vw auto 0;
+        padding: 0;
+        width: 95%;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+
+    .link-btn {
+        color: black;
+        padding: 2vw 3vw;
+        margin: 0;
+        text-align: center;
+        border: 1px solid gray;
+        border-radius: 3px;
+        text-decoration: none;
+        &:hover {
+            background-color: #EEE;
+        }
+    }
+
+    button {
+        padding: 2vw 3vw;
+        border-radius: 2px;
+        border: 1px solid gray;
+        background-color: white;
+        margin-bottom: 1vw;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 791px) {
+    .body-container {
+        margin: 100px auto 0;
+        padding: 0;
+        width: 95%;
+        max-width: 800px;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+
+    .link-btn {
+        color: black;
+        padding: 15px 30px;
+        margin: 0;
+        text-align: center;
+        border: 1px solid gray;
+        border-radius: 3px;
+        text-decoration: none;
+        &:hover {
+            background-color: #EEE;
+        }
+    }
 }

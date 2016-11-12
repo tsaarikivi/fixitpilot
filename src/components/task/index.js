@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux'
 import taskActions from '../../actions/task'
 import firebase from 'firebase'
 
+require('./task.scss')
+
 class Task extends React.Component {
     componentDidMount() {
         const taskId = this.props.location.pathname.split("/")[2]
@@ -21,11 +23,10 @@ class Task extends React.Component {
             return (
                 <div className="task-view">
                     <h1>{task.title}</h1>
-                    <p>{task.address}</p>
-                    <small>tehty: {task.done.toString()}</small>
-                    <br />
-                    <small>jatkettu: {task.continued}</small>
-                    <p>{task.desc}</p>
+                    <p>Osoite: {task.address}</p>
+                    <p>Kuvaus: {task.desc}</p>
+                    <p>tehty: {task.done.toString()}</p>
+                    <p>jatkettu: {task.continued}</p>
                     {this.renderButtons(task)}
                 </div>
             )

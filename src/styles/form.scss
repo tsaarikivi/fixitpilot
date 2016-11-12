@@ -1,0 +1,41 @@
+@media screen and (max-width: 790px) {
+    form {
+        width: 100%;
+        margin: 0 auto;
+        input {
+            width: 100%;
+            padding: 1vw 0;
+            box-sizing: border-box;
+            margin-bottom: 2vw;
+            border: 1px solid gray;
+            border-radius: 2px;
+        }
+        textarea {
+            width: 100%;
+            height: 15vw;
+            box-sizing: border-box;
+            margin-bottom: 2vw;
+            border: 1px solid gray;
+            border-radius: 2px;
+        }
+    }
+}
+
+@media screen and (min-width: 791px) {
+    form {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+    }
+}

@@ -4,6 +4,7 @@ var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlug
 var webpack = require('webpack')
 
 module.exports = {
+    devtool: "source-map",
     entry: {
         app: './src/index.js',
         polyfill: ['babel-polyfill'],
@@ -65,11 +66,8 @@ module.exports = {
             {
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract(
-                    'style-loader',
-                    'css-loader' +
-                    'postcss-loader' +
-                    'sass-loader' +
-                    'includePaths[]' + __dirname + './node_modules'
+                    'style',
+                    'css?sourceMap!sass?sourceMap'
                 )
             }
         ]

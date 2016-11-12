@@ -8,7 +8,9 @@ import { Router, hashHistory } from 'react-router'
 import routes from './routes'
 import store from './store'
 
-import './styles/index.scss'
+require('./styles/index.scss')
+require('./styles/form.scss')
+require('./styles/list.scss')
 
 // create redux store and apply middleware
 let reduxStore = createStore(store, applyMiddleware(thunk))

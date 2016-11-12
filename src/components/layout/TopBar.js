@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import firebase from 'firebase'
 
-import './topbar.scss'
+require('./topbar.scss')
 
 class TopBar extends React.Component {
     render() {

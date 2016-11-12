@@ -31,7 +31,7 @@ class Tasks extends React.Component {
     renderNewTaskLink() {
         const { auth } = this.props
         if (auth) {
-            if (auth.coordinator) return <Link to="/newTask">Lisää uusi duuni</Link>
+            if (auth.coordinator) return <Link className="link-btn" to="/newTask">Lisää uusi duuni</Link>
         }
     }
 
